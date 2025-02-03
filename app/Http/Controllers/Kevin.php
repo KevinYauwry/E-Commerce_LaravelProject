@@ -74,5 +74,5 @@ class Kevin extends Controller
         $produk->delete();
 
         return redirect()->route('produk.index');
-    }
+    }  
 }
