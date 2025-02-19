@@ -2,22 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Kevin;
-use App\Http\Controllers\Tikus;
-use App\Http\Controllers\Omnivora;
+use App\Http\Controllers\SessionController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tikus', [Tikus::class, 'jalan']);
-Route::get('/makan', [Tikus::class, 'makan']);
-Route::get('/gigi', [Tikus::class, 'gigi']);
-Route::get('/menyusui', [Tikus::class, 'menyusui']);
-Route::get('/suara', [Tikus::class, 'suara']);
-Route::get('/suara2', [Omnivora::class, 'suara']);
-Route::get('/hitung', [Tikus::class, 'hitung']);
+// Login Route
+Route::get('/sesi', [SessionController::class, 'index']);
+Route::post('/sesi/login', [SessionController::class, 'login']);
 
-Route::get('/', [Kevin::class, 'index'])->name('produk.index');
+// E-commerce Route
+Route::get('/dashboard', [Kevin::class, 'index'])->name('produk.index');
 Route::get('/produk/create', [Kevin::class, 'create'])->name('produk.create');
 Route::post('/produk', [Kevin::class, 'store'])->name('produk.store');
 Route::get('/produk/{id}/edit', [Kevin::class, 'edit'])->name('produk.edit');
