@@ -1,85 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | E-commerce</title>
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  </head>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login | E-commerce</title>
+      <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+      />
+      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    </head>
 
-  <body>
-    <div class="container">
-      <div class="form-box login">
-        <form action="/sesi/login" method="POST">
+    <body>
+      <div class="container">
+        <div class="form-box login">
+          <form action="/sesi/login" method="POST">
+              @csrf
+            <h1>LOG IN</h1>
+            <div class="input-box">
+              <input type="email" name="email" value="{{Session::get('email')}}" placeholder="Email"/>
+              <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="password" name="password" placeholder="Password"/>
+              <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="forgot-link">
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" name="submit" class="btn">Log In</button>
+            <p>or login with socials</p>
+            <div class="social-icons">
+              <a href="#"><i class="bx bxl-google"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+              <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+              <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-box register">
+          <form action="/sesi/create" method="POST">
             @csrf
-          <h1>Login</h1>
-          <div class="input-box">
-            <input type="email" name="email" value="{{Session::get('email')}}" placeholder="Email"/>
-            <i class="bx bxs-user"></i>
-          </div>
-          <div class="input-box">
-            <input type="password" name="password" placeholder="Password"/>
-            <i class="bx bxs-lock-alt"></i>
-          </div>
-          <div class="forgot-link">
-            <a href="#">Forgot Password?</a>
-          </div>
-          <button type="submit" name="submit" class="btn">Login</button>
-          <p>or login with socials</p>
-          <div class="social-icons">
-            <a href="#"><i class="bx bxl-google"></i></a>
-            <a href="#"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
-            <a href="#"><i class="bx bxl-linkedin-square"></i></a>
-          </div>
-        </form>
-      </div>
-
-      <div class="form-box register">
-        <form action="/sesi/register" method="POST">
-          @csrf
-          <h1>Registration</h1>
-          <div class="input-box">
-            <input type="text" placeholder="Username" />
-            <i class="bx bxs-user"></i>
-          </div>
-          <div class="input-box">
-            <input type="email" placeholder="Email"/>
-            <i class='bx bxs-envelope' ></i>
-          </div>
-          <div class="input-box">
-            <input type="password" placeholder="Password" />
-            <i class="bx bxs-lock-alt"></i>
-          </div>
-          <button type="submit" class="btn">Register</button>
-          <p>or register with socials</p>
-          <div class="social-icons">
-            <a href="#"><i class="bx bxl-google"></i></a>
-            <a href="#"><i class="bx bxl-github"></i></a>
-            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
-            <a href="#"><i class="bx bxl-linkedin-square"></i></a>
-          </div>
-        </form>
-      </div>
-
-      <div class="toggle-box">
-        <div class="toggle-panel toggle-left">
-            <h1>Hello Welcome!</h1>
-            <p>Don't have an account?</p>
-            <button class="btn register-btn">Register</button>
+            <h1>Registration</h1>
+            <div class="input-box">
+              <input type="text" name="username" placeholder="Username" />
+              <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="email" name="email" placeholder="Email"/>
+              <i class='bx bxs-envelope' ></i>
+            </div>
+            <div class="input-box">
+              <input type="password" name="password" placeholder="Password" />
+              <i class="bx bxs-lock-alt"></i>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <p>or register with socials</p>
+            <div class="social-icons">
+              <a href="#"><i class="bx bxl-google"></i></a>
+              <a href="#"><i class="bx bxl-github"></i></a>
+              <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+              <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+            </div>
+          </form>
         </div>
-        <div class="toggle-panel toggle-right">
-            <h1>Welcome Back!</h1>
-            <p>Already have an account?</p>
-            <button class="btn login-btn">Login</button>
+
+        <div class="toggle-box">
+          <div class="toggle-panel toggle-left">
+              <h1>Hello Welcome!</h1>
+              <p>Don't have an account?</p>
+              <button class="btn register-btn">Register</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+              <h1>Welcome Back!</h1>
+              <p>Already have an account?</p>
+              <button class="btn login-btn">Log In</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <script src="{{ asset('js/script.js') }}"></script>
-  </body>
-</html>
+      <script src="{{ asset('js/script.js') }}"></script>
+    </body>
+  </html>

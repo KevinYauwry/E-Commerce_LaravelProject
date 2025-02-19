@@ -43,6 +43,11 @@
                 <span class="fw-bold">+</span>
                 <span class="fw-bold ms-2">Tambah Produk</span> 
             </a>
+            <form action="/sesi/logout" method="POST" class="text-center mb-4">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+
             <div class="row justify-content-center">
                 @foreach($produks as $produk)
                 <div class="col-md-2 mb-4">

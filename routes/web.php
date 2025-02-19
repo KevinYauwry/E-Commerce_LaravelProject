@@ -13,6 +13,12 @@ Route::get('/', function () {
 Route::get('/sesi', [SessionController::class, 'index']);
 Route::post('/sesi/login', [SessionController::class, 'login']);
 
+// logout Route
+Route::post('/sesi/logout', [SessionController::class, 'logout']);
+
+// register route
+Route::post('/sesi/create', [SessionController::class, 'create']);
+
 // E-commerce Route
 Route::get('/dashboard', [Kevin::class, 'index'])->name('produk.index');
 Route::get('/produk/create', [Kevin::class, 'create'])->name('produk.create');
